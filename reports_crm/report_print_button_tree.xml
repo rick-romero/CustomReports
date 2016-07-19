@@ -4,12 +4,11 @@
     <report
 		    id="action_print_all_leads"
 		    model="crm.lead"
-		    string="Invoices 2"
+		    string="Imprimir Oportunidades"
 		    report_type="qweb-pdf"
 		    name="reports_crm.report_all_leads"
 		    file="report_all_leads"
 		    attachment_use="False"
-		    
 		/>
     </data>
 </openerp>
