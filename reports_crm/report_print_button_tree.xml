@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    <report
+		    id="action_print_all_leads"
+		    model="crm.lead"
+		    string="Invoices 2"
+		    report_type="qweb-pdf"
+		    name="reports_crm.report_all_leads"
+		    file="report_all_leads"
+		    attachment_use="False"
+		    
+		/>
+    </data>
+</openerp>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	<!-- Main template -->
+		<template id="reports_crm.report_all_leads">
+		    <t t-call="report.html_container">
+		        <t t-foreach="doc_ids" t-as="doc_id">
+		            <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'reports_crm.report_all_leads_document')"/>
+		        </t>
+		    </t>
+		</template>
+		
+		<!-- Translatable template -->
+		<template id="report_all_leads_document">
+		    <t t-call="report.external_layout">
+		        <div class="page">
+					<h2>
+						<span t-field="o.name"/>
+					</h2>
+					<h3>
+						<span t-field="o.phone"/>
+					</h3>
+					<div class="row mt10 mb10">
+						<div class="col-xs-12">
+							<span t-field="o.street"/> - <span t-field="o.zip"/>
+						</div>
+					</div>
+				
+					<div class="row mt32 mb32">
+						<div class="col-xs-6">
+							<div class="row">
+								<div class="col-xs-12">
+									<strong>Comprador:</strong>
+									<span t-field="o.comprador"/>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<strong>Melhor Horário:</strong>
+									<span t-field="o.comprador_melhor_horario"/>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="row">
+								<div class="col-xs-12">
+									<strong>Distancia:</strong>
+									<span t-field="o.fq_distance"/>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<strong>Categoria:</strong>
+									<span t-field="o.fq_category"/>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<strong>Data da Oportunidade:</strong>
+									<span t-field="o.title_action"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mt32 mb32">
+						<div class="col-xs-12">
+							<strong>Anotações:</strong><br/>
+							<span t-field="o.description"/>
+						</div>
+					</div>
+					<div class="row mt32 mb32">
+						<div class="col-xs-12">
+							<strong>Histórico de Ligações</strong>
+						</div>
+						<div class="col-xs-12">
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<th>Data</th>
+										<th>Título</th>
+										<th>Descrição</th>
+									</tr>
+								</thead>
+								<tbody class="invoice_tbody">
+									<tr t-foreach="o.calls" t-as="l">
+										<td>
+											<span t-field="l.date"/>
+										</td>
+										<td>
+											<span t-field="l.name"/>
+										</td>
+										<td>
+											<span t-field="l.description"/>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="row mt32 mb32">
+						<div class="col-xs-12">
+							<strong>Histórico de Visitas</strong>
+						</div>
+						<div class="col-xs-12">
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<th>Data</th>
+										<th>Título</th>
+										<th>Descrição</th>
+									</tr>
+								</thead>
+								<tbody class="invoice_tbody">
+									<tr t-foreach="o.meetings" t-as="l">
+										<td>
+											<span t-field="l.start_date"/>
+										</td>
+										<td>
+											<span t-field="l.name"/>
+										</td>
+										<td>
+											<span t-field="l.description"/>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+		    </t>
+		</template>
+	</data>
+</openerp>
