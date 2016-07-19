@@ -57,7 +57,7 @@
 							<div class="row">
 								<div class="col-xs-12">
 									<strong>Data da Oportunidade:</strong>
-									<span t-field="o.title_action"/>
+									<span t-field="o.date_action"/>
 								</div>
 							</div>
 						</div>
